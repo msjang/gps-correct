@@ -21,16 +21,24 @@ A55는 카메라를 켜고 GPS신호를 수신하기까지 시간이 오래 걸�
 ## 해결의 방향
 
 아래와 같이 8장의 사진이 있다고 하자.
+```
 [ P1 P2 P3 P4 P5 P6 P7 P8 ]
+```
 
 1) 시간대가 비슷하게 찍힌 사진들을 모은다.
+```
 Cluster01 = [ P1 P2 P3 P4 ]
 Cluster02 = [ P5 P6 P7 P8 ]
+```
 
 2) 각 Cluster에서 GPS좌표가 잘못 기록된, '오기록 후보군'을 추출한다.
+```
 Cluster01.Err = [ P1 P2 ]
 Cluster02.Err = [ P5 P6 ]
+```
 
 3) 후보군으로 선정되지 않은 가장 빠른 번호의 GPS좌표를 후보군의 GPS좌표로 한다.
+```
 Cluster01.Err.setGps(P3.gps)
 Cluster02.Err.setGps(P7.gps)
+```
